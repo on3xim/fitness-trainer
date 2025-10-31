@@ -1,0 +1,164 @@
+/* Добавь этот код в конец существующего CSS */
+
+/* Секция преимуществ */
+.features-section {
+    background: white;
+    padding: 80px 0;
+    margin: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Секция упражнений */
+.exercises-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 0;
+    margin: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.exercises-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.exercise-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+}
+
+.exercise-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.exercise-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.exercise-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.exercise-card li:before {
+    content: "✓ ";
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+/* Детализированный вывод программы */
+.program-detail {
+    background: white;
+    border-left: 4px solid #4a90e2;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+.exercise-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b6b;
+}
+
+.exercise-item h5 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.exercise-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .features-grid,
+    .exercises-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-section,
+    .exercises-section {
+        margin: 20px 10px;
+        padding: 40px 0;
+    }
+}

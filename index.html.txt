@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fitness Coach - Ваш персональный тренер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">💪 AI Fitness Coach</h1>
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="scrollToTrainer()">Создать программу</button>
+                    <button class="nav-btn" onclick="scrollToChat()">Задать вопрос</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Герой секция -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Ваш персональный AI тренер</h1>
+                <p>Получайте индивидуальные программы тренировок, созданные искусственным интеллектом специально для вас</p>
+                <button class="cta-button" onclick="scrollToTrainer()">Начать тренироваться</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Фитнес тренер">
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="features-section">
+            <div class="container">
+                <h2>Почему выбирают AI Fitness Coach?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Персонализация">
+                        <h3>Персональный подход</h3>
+                        <p>Программы создаются именно под ваши цели и возможности</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Технологии">
+                        <h3>AI технологии</h3>
+                        <p>Искусственный интеллект анализирует ваши данные</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Поддержка">
+                        <h3>Круглосуточная поддержка</h3>
+                        <p>Задавайте вопросы в любое время</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма тренера -->
+        <section class="trainer-section">
+            <div class="container">
+                <h2>Создайте свою программу</h2>
+                <div class="trainer-container">
+                    <div class="form-section">
+                        <form id="fitness-form">
+                            <div class="form-group">
+                                <label for="goal">Цель тренировок:</label>
+                                <select id="goal" name="goal" required>
+                                    <option value="">Выберите цель</option>
+                                    <option value="weight_loss">Похудение</option>
+                                    <option value="muscle_gain">Набор мышечной массы</option>
+                                    <option value="strength">Увеличение силы</option>
+                                    <option value="endurance">Развитие выносливости</option>
+                                    <option value="toning">Тонирование тела</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="level">Уровень подготовки:</label>
+                                <select id="level" name="level" required>
+                                    <option value="">Выберите уровень</option>
+                                    <option value="beginner">Начинающий</option>
+                                    <option value="intermediate">Средний</option>
+                                    <option value="advanced">Продвинутый</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Возраст:</label>
+                                <input type="number" id="age" name="age" min="16" max="80" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="weight">Вес (кг):</label>
+                                <input type="number" id="weight" name="weight" min="30" max="200" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="height">Рост (см):</label>
+                                <input type="number" id="height" name="height" min="140" max="220" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="equipment">Оборудование:</label>
+                                <select id="equipment" name="equipment" required>
+                                    <option value="">Что есть доступно?</option>
+                                    <option value="full_gym">Полный тренажерный зал</option>
+                                    <option value="basic_gym">Базовые тренажеры</option>
+                                    <option value="home">Домашние тренировки</option>
+                                    <option value="bodyweight">Только вес тела</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="days">Дней в неделю:</label>
+                                <select id="days" name="days" required>
+                                    <option value="">Количество тренировок</option>
+                                    <option value="2">2 дня</option>
+                                    <option value="3">3 дня</option>
+                                    <option value="4">4 дня</option>
+                                    <option value="5">5 дней</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Создать программу</button>
+                        </form>
+                    </div>
+
+                    <div class="result-section">
+                        <div id="loading" class="loading hidden">
+                            <div class="spinner"></div>
+                            <p>AI тренер создает вашу программу...</p>
+                        </div>
+                        <div id="result" class="result hidden">
+                            <h3>🎯 Ваша персональная программа</h3>
+                            <div id="program-output"></div>
+                            <button onclick="saveProgram()" class="save-btn">💾 Сохранить программу</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Примеры упражнений -->
+        <section class="exercises-section">
+            <div class="container">
+                <h2>📚 База упражнений</h2>
+                <div class="exercises-grid">
+                    <div class="exercise-card">
+                        <img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Силовые тренировки">
+                        <h3>💪 Силовые упражнения</h3>
+                        <ul>
+                            <li>Приседания со штангой</li>
+                            <li>Жим лежа</li>
+                            <li>Становая тяга</li>
+                            <li>Подтягивания</li>
+                            <li>Жим над головой</li>
+                        </ul>
+                    </div>
+                    <div class="exercise-card">
+                        <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Кардио тренировки">
+                        <h3>🏃 Кардио упражнения</h3>
+                        <ul>
+                            <li>Бег на дорожке</li>
+                            <li>Велотренажер</li>
+                            <li>Скакалка</li>
+                            <li>Берпи</li>
+                            <li>Плавание</li>
+                        </ul>
+                    </div>
+                    <div class="exercise-card">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Растяжка">
+                        <h3>🧘 Восстановление</h3>
+                        <ul>
+                            <li>Растяжка мышц</li>
+                            <li>Йога для восстановления</li>
+                            <li>Фоам роллинг</li>
+                            <li>Дыхательные практики</li>
+                            <li>Медитация</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Чат с AI -->
+        <section class="chat-section">
+            <div class="container">
+                <h2>💬 Задайте вопрос AI тренеру</h2>
+                <div class="chat-container">
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message ai-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Привет! Я ваш AI тренер. Задайте мне любой вопрос о тренировках, питании или восстановлении!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Задайте ваш вопрос...">
+                        <button onclick="sendMessage()">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Fitness Coach. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
